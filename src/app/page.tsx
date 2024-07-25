@@ -1,13 +1,27 @@
-import Image from "next/image";
+import React from "react";
+import BlogPost from '../components/BlogPost';
 
-export default function Home() {
+
+// title: should be user input
+
+export function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      
-      <h1 className="font-mono text ">Blogger</h1>
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30"> This is a test</p>
+    <div className="container mx-auto p-4">
+      <h1 className="text-4xl font-bold mb-4">K's Blog</h1>
+      <div className="grid grid-cols-1 gap-4">
+        <BlogPost
+          title="Project 1"
+          excerpt="In this project I explore Convolutional Neural Networks"
+          imageUrl="https://via.placeholder.com/420"
+        />
+        <BlogPost
+          title="Project 2"
+          excerpt="This project is about game programming..."
+          imageUrl="https://via.placeholder.com/420"
+        />
       </div>
-    </main>
+    </div>
   );
 }
+
+export default Home;
