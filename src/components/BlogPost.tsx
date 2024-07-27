@@ -1,15 +1,17 @@
 import React from "react";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} from "@/components/ui/card"
 
-// ask Tim regarding trouble with shadcn-ui
-// my first component
-function BlogPost({ title, excerpt, imageUrl }: { title: string; excerpt: string; imageUrl: string }) {
-    return (
-      <div className="p-4 border rounded shadow hover:shadow-lg transition-shadow duration-300">
-        <img src={imageUrl} alt={title} className="w-full h-48 object-cover mb-4" />
-        <h2 className="text-2xl font-bold mb-2">{title}</h2>
-        <p>{excerpt}</p>
-      </div>
-    );
-  }
+function CardPost({ title, desc, imageURL }: { title: string; desc: string; imageURL: string }) {
+  return (
+    <Card>
+      <CardHeader>
+        <img src={imageURL} alt={title} className="w-full h-48 object-cover mb-4"/>
+        <CardTitle> Project 1</CardTitle>
+        <CardDescription>{desc}</CardDescription>
+      </CardHeader>
+    </Card>
 
-export default BlogPost;
+  )
+}
+
+export default CardPost
