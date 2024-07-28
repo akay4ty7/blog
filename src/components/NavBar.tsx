@@ -27,9 +27,36 @@ function NavBar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Explore</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <NavigationMenuLink href="/projects">Projects</NavigationMenuLink>
-                  <NavigationMenuLink href="/hobbies">Hobbies</NavigationMenuLink>
-                  {/* Add more links here */}
+                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    <li className="row-span-3">
+                      <NavigationMenuLink asChild>
+                        <a 
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/projects">
+                          <div className="mb-2 mt-4 text-lg font-medium">
+                            Projects
+                          </div>
+                          <p>
+                            Here is all my ongoing and completed projects reside. Check it out!
+                          </p>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                    <li className="row-span-3">
+                      <NavigationMenuLink asChild>
+                        <a 
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/hobbies">
+                          <div className="mb-2 mt-4 text-lg font-medium">
+                            Hobbies
+                          </div>
+                          <p>
+                            Here is where I talk about my hobbies. Check it out!
+                          </p>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                    </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
