@@ -9,14 +9,26 @@ import {
   NavigationMenuViewport,
 }  from "@/components/ui/navigation-menu"
 
-function NavBar() {
+import {cn} from "@/lib/utils";
+import Link from "next/link";
+import * as React from "react"
 
-  const content = [
-    { title: 'Projects', link: '/projects' },
-    { title: 'Hobbies', link: '/hobbies' },
-    // Add more in future.
-  ];
+const explore: { title: string; href: string; description: string }[] = [
+  {
+    title: "Explore",
+    href: "/",
+    description:
+      "Here is all my ongoing and completed projects reside. Check it out!",
+  },
+  {
+    title: "Hobbies",
+    href: "/",
+    description:
+      "Here is where I talk about my hobbies. Check it out!",
+  },
+]
 
+function NavigationMenuFixed() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between p-4">
@@ -27,36 +39,12 @@ function NavBar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Explore</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                    <li className="row-span-3">
-                      <NavigationMenuLink asChild>
-                        <a 
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/projects">
-                          <div className="mb-2 mt-4 text-lg font-medium">
-                            Projects
-                          </div>
-                          <p>
-                            Here is all my ongoing and completed projects reside. Check it out!
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                    </li>
-                    <li className="row-span-3">
-                      <NavigationMenuLink asChild>
-                        <a 
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/hobbies">
-                          <div className="mb-2 mt-4 text-lg font-medium">
-                            Hobbies
-                          </div>
-                          <p>
-                            Here is where I talk about my hobbies. Check it out!
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                    </li>
-                    </ul>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    {explore.map((explore) => (
+                      <ListItem key={explore.title} title={explore.title} href={explore.href}>
+                        {explore.description}
+                      </ListItem>))}
+                  </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -67,6 +55,26 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavigationMenuFixed;
 
-// Make the above better
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">>(({ className, title, children, ...props }, ref) => {
+    return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a ref={ref} className={cn("block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground", 
+        className)} {...props}>
+          <div className="text-sm font-medium leading-none">
+            {title}
+          </div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+
+ListItem.displayName = "ListItem"
