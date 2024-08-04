@@ -6,7 +6,7 @@ function CardPost({ title, desc, imageURL }: { title: string; desc: string; imag
       <Card>
         <CardHeader>
           <img src={imageURL} alt={title} className="w-full h-48 object-cover mb-4"/>
-          <CardTitle> Project 1</CardTitle>
+          <CardTitle> {title} </CardTitle>
           <CardDescription>{desc}</CardDescription>
         </CardHeader>
       </Card>
@@ -16,4 +16,4 @@ function CardPost({ title, desc, imageURL }: { title: string; desc: string; imag
   )
 }
 
-export default CardPost
+export default CardPost;

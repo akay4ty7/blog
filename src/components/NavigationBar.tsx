@@ -10,7 +10,6 @@ import {
 }  from "@/components/ui/navigation-menu"
 
 import {cn} from "@/lib/utils";
-import Link from "next/link";
 import * as React from "react"
 
 const explore: { title: string; href: string; description: string }[] = [
@@ -28,12 +27,12 @@ const explore: { title: string; href: string; description: string }[] = [
   },
 ]
 
-function NavigationMenuFixed() {
+function NavigationBar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between p-4">
         <div className="flex items-center">
-          <a href="/" className="text-lg font-bold mr-4">Logo</a>
+          <a href="/" className="text-lg font-bold mr-4">[K.A]</a>
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -55,7 +54,7 @@ function NavigationMenuFixed() {
   );
 }
 
-export default NavigationMenuFixed;
+export default NavigationBar;
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
