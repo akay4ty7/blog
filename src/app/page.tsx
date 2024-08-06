@@ -3,7 +3,6 @@ import BlogPost from '@/components/BlogPost';
 import NavigationBar from '@/components/NavigationBar';
 import FooterPanel from '@/components/Footer';
 import IntroductionPanel from '@/components/IntroductionPanel';
-
 // title: should be user input
 
 export function Home() {
