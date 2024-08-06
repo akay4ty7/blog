@@ -1,24 +1,18 @@
 import React from "react";
-import BlogPost from '../components/BlogPost';
-import NavBar from '../components/NavBar';
-
-
+import BlogPost from '@/components/BlogPost';
+import NavigationBar from '@/components/NavigationBar';
+import FooterPanel from '@/components/Footer';
+import IntroductionPanel from '@/components/IntroductionPanel';
 // title: should be user input
 
 export function Home() {
   return (
     <main>
-      {/* Insert Static Nav bar on top */}
-      <NavBar />
       <div>
-        {/* // Top part of homepage holding desc and image */}
-        <div>
-          {/* // Profile image */}
-        </div>
-        <div>
-          {/* // desc */}
-        </div>
+        <NavigationBar />
       </div>
+      {/* // Top part of homepage holding desc and image */}
+      <IntroductionPanel />
       <div className="flex flex-wrap justify-center mx-auto max-w-screen-lg">
         <BlogPost
         title="Project 1"
@@ -41,7 +35,8 @@ export function Home() {
         imageURL="https://images.ygoprodeck.com/images/cards_cropped/95440946.jpg"
         />
       </div>
-      
+
+      <FooterPanel />
       
     </main>
   );
